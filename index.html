@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KRAWAA | كراوع - شريكك العقاري للحاضر والمستقبل</title>
+    <title>KRAWAA | كراوع - نبني الثقة، نصنع الفرص</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,11 +18,12 @@
            CSS VARIABLES & THEMES
            ========================================= */
         :root {
+            /* Light Mode - Kept as is */
             --bg-primary: #F8F7F4;
             --bg-secondary: #FFFFFF;
             --bg-tertiary: #F2F0EB;
-            --bg-dark: #18202A;
-            --bg-dark-secondary: #1F2937;
+            --bg-dark: #0A1F44; /* Navy Blue */
+            --bg-dark-secondary: #0F2A5C; /* Lighter Navy */
             
             --text-primary: #1A202C;
             --text-secondary: #4A5568;
@@ -53,11 +54,12 @@
         }
 
         [data-theme="dark"] {
-            --bg-primary: #0F1419;
-            --bg-secondary: #1A222C;
-            --bg-tertiary: #232D38;
-            --bg-dark: #0A0E12;
-            --bg-dark-secondary: #151C24;
+            /* Dark Mode - Navy Blue Theme */
+            --bg-primary: #06152B; /* Dark Navy */
+            --bg-secondary: #0A1F44; /* Navy Blue */
+            --bg-tertiary: #0F2A5C; /* Lighter Navy */
+            --bg-dark: #030A14; /* Very Dark Navy */
+            --bg-dark-secondary: #06152B; /* Dark Navy */
             
             --text-primary: #F7F5EF;
             --text-secondary: #A0AEC0;
@@ -70,15 +72,15 @@
             --accent-gold-light: rgba(212, 192, 138, 0.1);
             --accent-gold-border: rgba(212, 192, 138, 0.25);
             
-            --border-color: #2D3748;
-            --border-light: #1E2836;
+            --border-color: #1E3A6E; /* Navy Border */
+            --border-light: #0F2A5C;
             
-            --glass-bg: rgba(26, 34, 44, 0.7);
+            --glass-bg: rgba(10, 31, 68, 0.7); /* Navy Glass */
             --glass-border: rgba(255, 255, 255, 0.08);
             --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             
-            --header-bg: rgba(15, 20, 25, 0.85);
-            --header-bg-scrolled: rgba(15, 20, 25, 0.98);
+            --header-bg: rgba(6, 21, 43, 0.85); /* Dark Navy Header */
+            --header-bg-scrolled: rgba(6, 21, 43, 0.98);
             
             --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
             --card-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.5);
@@ -100,7 +102,7 @@
         }
 
         body {
-            font-family: 'IBM Plex Sans Arabic', 'Lato', sans-serif;
+            font-family: 'Cairo', 'Lato', sans-serif; /* Changed to Cairo */
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.7;
@@ -109,11 +111,11 @@
         }
 
         body[dir="ltr"] {
-            font-family: 'Lato', 'IBM Plex Sans Arabic', sans-serif;
+            font-family: 'Lato', 'Cairo', sans-serif;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant Garamond', 'IBM Plex Sans Arabic', serif;
+            font-family: 'Cormorant Garamond', 'Cairo', serif;
             font-weight: 600;
             line-height: 1.2;
             color: var(--text-primary);
@@ -243,7 +245,7 @@
         }
 
         /* =========================================
-           HEADER - FIXED FOR MOBILE
+           HEADER
            ========================================= */
         header {
             position: fixed;
@@ -276,7 +278,6 @@
             height: 68px;
         }
 
-        /* Logo Container */
         .logo {
             display: flex;
             align-items: center;
@@ -329,15 +330,6 @@
 
         header.scrolled .logo-text .brand-sub {
             font-size: 0.45rem;
-        }
-
-        .logo .logo-placeholder {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: 5px;
-            text-transform: uppercase;
         }
 
         .nav-links {
@@ -439,9 +431,6 @@
             border-radius: 2px;
         }
 
-        /* =========================================
-           RESPONSIVE HEADER - CRITICAL FIXES
-           ========================================= */
         @media (max-width: 992px) {
             .nav-links {
                 display: none;
@@ -634,7 +623,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(16, 22, 30, 0.75) 0%, rgba(16, 22, 30, 0.4) 50%, rgba(16, 22, 30, 0.8) 100%);
+            background: linear-gradient(180deg, rgba(6, 21, 43, 0.85) 0%, rgba(6, 21, 43, 0.5) 50%, rgba(6, 21, 43, 0.9) 100%);
             z-index: -1;
         }
 
@@ -896,7 +885,7 @@
         }
 
         /* =========================================
-           JOURNEY / TIMELINE - FIXED FOR MOBILE
+           JOURNEY / TIMELINE
            ========================================= */
         .timeline {
             position: relative;
@@ -989,7 +978,6 @@
             left: -7px;
         }
 
-        /* Desktop Alignment */
         @media (min-width: 769px) {
             .timeline-item:nth-child(odd) {
                 padding-right: 3.5rem;
@@ -999,7 +987,6 @@
             }
         }
 
-        /* Mobile Timeline - CRITICAL FIX */
         @media (max-width: 768px) {
             .timeline::before {
                 left: 15px;
@@ -1810,8 +1797,8 @@
         <img src="" alt="Luxury Real Estate" class="hero-bg" id="heroBg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 id="heroTitle">شريكك العقاري للحاضر والمستقبل</h1>
-            <p id="heroDesc">حلول عقارية واستثمارية متكاملة، تجمع بين الخبرة والابتكار لتمنحك قراراً عقارياً واثقاً.</p>
+            <h1 id="heroTitle">نبني الثقة، نصنع الفرص، ونرسم المستقبل العقاري</h1>
+            <p id="heroDesc">حلول عقارية واستثنائية ومتكاملة تجمع بين الخبرة والابتكار لتمنحك قراراً عقارياً واثقاً.</p>
             <div class="hero-buttons">
                 <a href="#services" class="btn btn-primary" id="heroBtn1">اكتشف خدماتنا</a>
                 <a href="#contact" class="btn btn-outline-light" id="heroBtn2">تواصل معنا</a>
@@ -1921,7 +1908,7 @@
         <div class="container">
             <h2 class="section-title reveal" id="brandsTitle">منظومة كراوع</h2>
             <div class="gold-line reveal"></div>
-            <p class="section-subtitle reveal" id="brandsSubtitle">خمس براندات متخصصة، مظلة واحدة</p>
+            <p class="section-subtitle reveal" id="brandsSubtitle">خمس علامات تجارية متخصصة، مظلة واحدة</p>
             
             <div class="brands-grid" id="brandsGrid">
                 <!-- Brands injected via JS -->
@@ -1999,7 +1986,7 @@
          ========================================= -->
     <section class="section-padding contact-section" id="contact">
         <div class="container">
-            <h2 class="reveal" id="contactTitle">شريكك العقاري للحاضر والمستقبل</h2>
+            <h2 class="reveal" id="contactTitle">نبني الثقة، نصنع الفرص، ونرسم المستقبل العقاري</h2>
             <p class="reveal" id="contactDesc">للاستشارة أو الشراكة، تواصل معنا في أي وقت.</p>
             
             <div class="contact-info reveal">
@@ -2045,7 +2032,7 @@
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4 id="footerBrandsTitle">برانداتنا</h4>
+                    <h4 id="footerBrandsTitle">5 علامات تجارية</h4>
                     <ul id="footerBrandsList">
                         <!-- Footer brands injected via JS -->
                     </ul>
@@ -2075,11 +2062,17 @@
                 studio: "lo5.jpeg"
             },
             
+            // =========================================
+            // صور الموقع - يمكنك تغييرها من هنا
+            // =========================================
             images: {
-                hero: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-                about: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                presenceTripoli: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                presenceBenghazi: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                // صورة الواجهة الرئيسية (Hero)
+                j1: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+                // صورة قسم "عن الشركة"
+                j2: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                // صور المكاتب
+                presenceTripoli: "j1.jpg",
+                presenceBenghazi: "j2.webp"
             },
             
             social: {
@@ -2108,8 +2101,8 @@
                 navPresence: "حضورنا",
                 navContact: "تواصل معنا",
                 
-                heroTitle: "شريكك العقاري للحاضر والمستقبل",
-                heroDesc: "حلول عقارية واستثمارية متكاملة، تجمع بين الخبرة والابتكار لتمنحك قراراً عقارياً واثقاً.",
+                heroTitle: "نبني الثقة، نصنع الفرص، ونرسم المستقبل العقاري",
+                heroDesc: "حلول عقارية واستثنائية ومتكاملة تجمع بين الخبرة والابتكار لتمنحك قراراً عقارياً واثقاً.",
                 heroBtn1: "اكتشف خدماتنا",
                 heroBtn2: "تواصل معنا",
                 
@@ -2149,7 +2142,7 @@
                 ],
                 
                 brandsTitle: "منظومة كراوع",
-                brandsSubtitle: "خمس براندات متخصصة، مظلة واحدة",
+                brandsSubtitle: "خمس علامات تجارية متخصصة، مظلة واحدة",
                 brands: [
                     { id: "realEstate", nameAr: "كراوع للعقارات", nameEn: "KRAWAA REAL ESTATE", desc: "الوساطة العقارية، التسويق، إدارة الأملاك، والاستشارات العقارية." },
                     { id: "construction", nameAr: "كراوع للمقاولات والإنشاءات", nameEn: "KRAWAA CONSTRUCTION", desc: "المقاولات والإنشاءات والهندسة، وتنفيذ المشاريع بأعلى معايير الجودة." },
@@ -2194,7 +2187,7 @@
                 detailPartnersTitle: "الشراكات",
                 detailPartnersText: "مطورون، مكاتب هندسية، ومستثمرون، محامون ومقيّمون.",
                 
-                contactTitle: "شريكك العقاري للحاضر والمستقبل",
+                contactTitle: "نبني الثقة، نصنع الفرص، ونرسم المستقبل العقاري",
                 contactDesc: "للاستشارة أو الشراكة، تواصل معنا في أي وقت.",
                 contactBtnCall: "اتصل بنا",
                 contactBtnWhatsapp: "راسلنا عبر واتساب",
@@ -2203,7 +2196,7 @@
                 footerDesc: "شركة ليبية رائدة في مجال العقارات والاستثمار والمقاولات والتسويق العقاري والإنتاج الإعلامي.",
                 footerNavTitle: "روابط سريعة",
                 footerServicesTitle: "خدماتنا",
-                footerBrandsTitle: "برانداتنا",
+                footerBrandsTitle: "5 علامات تجارية",
                 footerCopyright: "© 2026 KRAWAA — جميع الحقوق محفوظة."
             },
             en: {
@@ -2215,8 +2208,8 @@
                 navPresence: "Our Presence",
                 navContact: "Contact Us",
                 
-                heroTitle: "Your Real Estate Partner for Today and Tomorrow",
-                heroDesc: "Integrated real estate and investment solutions, combining experience and innovation to give you a confident real estate decision.",
+                heroTitle: "We Build Trust, Create Opportunities, and Shape the Real Estate Future",
+                heroDesc: "Exceptional and integrated real estate solutions combining experience and innovation to give you a confident real estate decision.",
                 heroBtn1: "Discover Our Services",
                 heroBtn2: "Contact Us",
                 
@@ -2301,7 +2294,7 @@
                 detailPartnersTitle: "Partnerships",
                 detailPartnersText: "Developers, engineering offices, investors, lawyers, and appraisers.",
                 
-                contactTitle: "Your Real Estate Partner for Today and Tomorrow",
+                contactTitle: "We Build Trust, Create Opportunities, and Shape the Real Estate Future",
                 contactDesc: "For consultation or partnership, contact us at any time.",
                 contactBtnCall: "Call Us",
                 contactBtnWhatsapp: "Message us on WhatsApp",
@@ -2310,7 +2303,7 @@
                 footerDesc: "A leading Libyan company in real estate, investment, contracting, real estate marketing, and media production.",
                 footerNavTitle: "Quick Links",
                 footerServicesTitle: "Our Services",
-                footerBrandsTitle: "Our Brands",
+                footerBrandsTitle: "5 Brands",
                 footerCopyright: "© 2026 KRAWAA — All rights reserved."
             }
         };
@@ -2414,15 +2407,15 @@
             const mobileNavList = document.getElementById('mobileNavList');
             mobileNavList.innerHTML = navItems.map(item => `<li><a href="${item.href}" class="mobile-link">${item.text}</a></li>`).join('');
 
-            // Hero
-            document.getElementById('heroBg').src = SITE_CONFIG.images.hero;
+            // Hero - Using j1
+            document.getElementById('heroBg').src = SITE_CONFIG.images.j1;
             document.getElementById('heroTitle').textContent = t.heroTitle;
             document.getElementById('heroDesc').textContent = t.heroDesc;
             document.getElementById('heroBtn1').textContent = t.heroBtn1;
             document.getElementById('heroBtn2').textContent = t.heroBtn2;
 
-            // About
-            document.getElementById('aboutImg').src = SITE_CONFIG.images.about;
+            // About - Using j2
+            document.getElementById('aboutImg').src = SITE_CONFIG.images.j2;
             document.getElementById('aboutTitle').textContent = t.aboutTitle;
             document.getElementById('aboutP1').textContent = t.aboutP1;
             document.getElementById('aboutP2').textContent = t.aboutP2;
