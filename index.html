@@ -18,12 +18,11 @@
            CSS VARIABLES & THEMES
            ========================================= */
         :root {
-            /* Light Mode - Kept as is */
             --bg-primary: #F8F7F4;
             --bg-secondary: #FFFFFF;
             --bg-tertiary: #F2F0EB;
-            --bg-dark: #0A1F44; /* Navy Blue */
-            --bg-dark-secondary: #0F2A5C; /* Lighter Navy */
+            --bg-dark: #0A1F44;
+            --bg-dark-secondary: #0F2A5C;
             
             --text-primary: #1A202C;
             --text-secondary: #4A5568;
@@ -54,12 +53,11 @@
         }
 
         [data-theme="dark"] {
-            /* Dark Mode - Navy Blue Theme */
-            --bg-primary: #06152B; /* Dark Navy */
-            --bg-secondary: #0A1F44; /* Navy Blue */
-            --bg-tertiary: #0F2A5C; /* Lighter Navy */
-            --bg-dark: #030A14; /* Very Dark Navy */
-            --bg-dark-secondary: #06152B; /* Dark Navy */
+            --bg-primary: #06152B;
+            --bg-secondary: #0A1F44;
+            --bg-tertiary: #0F2A5C;
+            --bg-dark: #030A14;
+            --bg-dark-secondary: #06152B;
             
             --text-primary: #F7F5EF;
             --text-secondary: #A0AEC0;
@@ -72,14 +70,14 @@
             --accent-gold-light: rgba(212, 192, 138, 0.1);
             --accent-gold-border: rgba(212, 192, 138, 0.25);
             
-            --border-color: #1E3A6E; /* Navy Border */
+            --border-color: #1E3A6E;
             --border-light: #0F2A5C;
             
-            --glass-bg: rgba(10, 31, 68, 0.7); /* Navy Glass */
+            --glass-bg: rgba(10, 31, 68, 0.7);
             --glass-border: rgba(255, 255, 255, 0.08);
             --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             
-            --header-bg: rgba(6, 21, 43, 0.85); /* Dark Navy Header */
+            --header-bg: rgba(6, 21, 43, 0.85);
             --header-bg-scrolled: rgba(6, 21, 43, 0.98);
             
             --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
@@ -448,21 +446,18 @@
             }
         }
 
-        /* =========================================
-           RESPONSIVE HEADER - ENLARGED LOGO ON MOBILE
-           ========================================= */
         @media (max-width: 768px) {
             .header-inner {
-                height: 80px; /* Increased for larger logo */
+                height: 80px;
             }
             header.scrolled .header-inner {
-                height: 70px; /* Increased for larger logo */
+                height: 70px;
             }
             .logo img {
-                height: 56px; /* Enlarged from 42px */
+                height: 56px;
             }
             header.scrolled .logo img {
-                height: 48px; /* Enlarged from 36px */
+                height: 48px;
             }
             .logo-text .brand-name {
                 font-size: 1.3rem;
@@ -488,16 +483,16 @@
 
         @media (max-width: 480px) {
             .header-inner {
-                height: 75px; /* Increased for larger logo */
+                height: 75px;
             }
             header.scrolled .header-inner {
-                height: 65px; /* Increased for larger logo */
+                height: 65px;
             }
             .logo img {
-                height: 50px; /* Enlarged from 36px */
+                height: 50px;
             }
             header.scrolled .logo img {
-                height: 42px; /* Enlarged from 30px */
+                height: 42px;
             }
             .logo-text .brand-name {
                 font-size: 1.1rem;
@@ -523,7 +518,6 @@
             }
         }
 
-        /* Mobile Menu */
         .mobile-menu {
             display: none;
             position: fixed;
@@ -1449,7 +1443,7 @@
         }
 
         /* =========================================
-           CONTACT SECTION
+           CONTACT SECTION - UPDATED WITH TWO OFFICES
            ========================================= */
         .contact-section {
             background-color: var(--bg-secondary);
@@ -1477,12 +1471,102 @@
             color: var(--text-primary);
         }
 
-        .contact-section p {
+        .contact-section > .container > p {
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             font-size: 1rem;
             position: relative;
             z-index: 1;
+        }
+
+        /* Two Offices Grid */
+        .offices-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .office-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem 2rem;
+            border-radius: 4px;
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .office-card:hover {
+            border-color: var(--accent-gold-border);
+            transform: translateY(-5px);
+        }
+
+        .office-card .office-icon {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .office-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .office-card .office-sub {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+
+        .office-card .office-phone {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .office-card .office-buttons {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .office-card .office-buttons .btn {
+            padding: 0.7rem 1.5rem;
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .offices-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .office-card .office-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .office-card .office-buttons .btn {
+                width: 100%;
+                max-width: 250px;
+            }
         }
 
         .contact-info {
@@ -1515,28 +1599,11 @@
             font-size: 1.1rem;
         }
 
-        .contact-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
         @media (max-width: 576px) {
             .contact-info {
                 flex-direction: column;
                 gap: 1rem;
                 align-items: center;
-            }
-            .contact-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .contact-buttons .btn {
-                width: 100%;
-                max-width: 280px;
             }
         }
 
@@ -1985,26 +2052,22 @@
     </section>
 
     <!-- =========================================
-         CONTACT SECTION
+         CONTACT SECTION - UPDATED
          ========================================= -->
     <section class="section-padding contact-section" id="contact">
         <div class="container">
             <h2 class="reveal" id="contactTitle">نبني الثقة، نصنع الفرص، ونرسم المستقبل العقاري</h2>
             <p class="reveal" id="contactDesc">للاستشارة أو الشراكة، تواصل معنا في أي وقت.</p>
             
+            <!-- Two Offices Grid -->
+            <div class="offices-grid" id="officesGrid">
+                <!-- Office cards will be injected via JS -->
+            </div>
+            
             <div class="contact-info reveal">
-                <a href="tel:+218913668485" id="contactPhone">
-                    <i class="fas fa-phone"></i> +218 91 366 8485
-                </a>
                 <a href="mailto:info@krawaa.ly" id="contactEmail">
                     <i class="fas fa-envelope"></i> info@krawaa.ly
                 </a>
-            </div>
-            
-            <div class="contact-buttons reveal">
-                <a href="tel:+218913668485" class="btn btn-primary" id="contactBtnCall">اتصل بنا</a>
-                <a href="#" class="btn btn-outline" id="contactBtnWhatsapp" target="_blank">راسلنا عبر واتساب</a>
-                <a href="mailto:info@krawaa.ly" class="btn btn-outline" id="contactBtnEmail">أرسل بريداً إلكترونياً</a>
             </div>
         </div>
     </section>
@@ -2049,7 +2112,7 @@
 
     <script>
         // =========================================
-        // SITE CONFIGURATION
+        // SITE CONFIGURATION - UPDATED
         // =========================================
         const SITE_CONFIG = {
             companyName: "KRAWAA",
@@ -2065,27 +2128,51 @@
                 studio: "lo5.jpeg"
             },
             
-            // =========================================
-            // صور الموقع - يمكنك تغييرها من هنا
-            // =========================================
             images: {
-                // صورة الواجهة الرئيسية (Hero)
                 j1: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-                // صورة قسم "عن الشركة"
                 j2: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                // صور المكاتب
                 presenceTripoli: "j1.jpg",
                 presenceBenghazi: "j2.webp"
             },
             
+            // =========================================
+            // روابط التواصل الاجتماعي - تمت إضافة فيسبوك
+            // =========================================
             social: {
                 instagram: "https://www.instagram.com/krawaa_re_luxury?stkn=ajBjNnNucHR6aGhi",
+                facebook: "https://www.facebook.com/share/19dQxkUdqn/",
                 tiktok: "tiktok.com/@krawaare",
                 youtube: "https://www.youtube.com/@krawaare"
             },
             
-            phone: "+218913668485",
+            // =========================================
+            // معلومات الاتصال - تم تحديث الأرقام
+            // =========================================
             email: "info@krawaa.ly",
+            
+            // مكاتب الشركة
+            offices: [
+                {
+                    id: "tripoli",
+                    cityAr: "طرابلس",
+                    cityEn: "Tripoli",
+                    subAr: "المكتب الرئيسي — HEAD OFFICE",
+                    subEn: "HEAD OFFICE",
+                    phone: "+218928010090",
+                    phoneDisplay: "+218 92 80 100 90",
+                    whatsapp: "218928010090"
+                },
+                {
+                    id: "benghazi",
+                    cityAr: "بنغازي",
+                    cityEn: "Benghazi",
+                    subAr: "فرع المنطقة الشرقية — BRANCH",
+                    subEn: "BRANCH",
+                    phone: "+218928810400",
+                    phoneDisplay: "+218 92 88 10 400",
+                    whatsapp: "218928810400"
+                }
+            ],
             
             defaultLang: "ar",
             defaultTheme: "light"
@@ -2193,8 +2280,8 @@
                 contactTitle: "نبني الثقة، نصنع الفرص، ونرسم المستقبل العقاري",
                 contactDesc: "للاستشارة أو الشراكة، تواصل معنا في أي وقت.",
                 contactBtnCall: "اتصل بنا",
-                contactBtnWhatsapp: "راسلنا عبر واتساب",
-                contactBtnEmail: "أرسل بريداً إلكترونياً",
+                contactBtnWhatsapp: "واتساب",
+                contactBtnEmail: "البريد",
                 
                 footerDesc: "شركة ليبية رائدة في مجال العقارات والاستثمار والمقاولات والتسويق العقاري والإنتاج الإعلامي.",
                 footerNavTitle: "روابط سريعة",
@@ -2299,9 +2386,9 @@
                 
                 contactTitle: "We Build Trust, Create Opportunities, and Shape the Real Estate Future",
                 contactDesc: "For consultation or partnership, contact us at any time.",
-                contactBtnCall: "Call Us",
-                contactBtnWhatsapp: "Message us on WhatsApp",
-                contactBtnEmail: "Send an Email",
+                contactBtnCall: "Call",
+                contactBtnWhatsapp: "WhatsApp",
+                contactBtnEmail: "Email",
                 
                 footerDesc: "A leading Libyan company in real estate, investment, contracting, real estate marketing, and media production.",
                 footerNavTitle: "Quick Links",
@@ -2410,14 +2497,14 @@
             const mobileNavList = document.getElementById('mobileNavList');
             mobileNavList.innerHTML = navItems.map(item => `<li><a href="${item.href}" class="mobile-link">${item.text}</a></li>`).join('');
 
-            // Hero - Using j1
+            // Hero
             document.getElementById('heroBg').src = SITE_CONFIG.images.j1;
             document.getElementById('heroTitle').textContent = t.heroTitle;
             document.getElementById('heroDesc').textContent = t.heroDesc;
             document.getElementById('heroBtn1').textContent = t.heroBtn1;
             document.getElementById('heroBtn2').textContent = t.heroBtn2;
 
-            // About - Using j2
+            // About
             document.getElementById('aboutImg').src = SITE_CONFIG.images.j2;
             document.getElementById('aboutTitle').textContent = t.aboutTitle;
             document.getElementById('aboutP1').textContent = t.aboutP1;
@@ -2526,17 +2613,38 @@
             // Contact
             document.getElementById('contactTitle').textContent = t.contactTitle;
             document.getElementById('contactDesc').textContent = t.contactDesc;
-            document.getElementById('contactBtnCall').textContent = t.contactBtnCall;
-            document.getElementById('contactBtnWhatsapp').textContent = t.contactBtnWhatsapp;
-            document.getElementById('contactBtnEmail').textContent = t.contactBtnEmail;
             
-            document.getElementById('contactPhone').href = `tel:${SITE_CONFIG.phone}`;
+            // =========================================
+            // OFFICES GRID - RENDER TWO OFFICE CARDS
+            // =========================================
+            const officesGrid = document.getElementById('officesGrid');
+            officesGrid.innerHTML = SITE_CONFIG.offices.map(office => {
+                const cityName = currentLang === 'ar' ? office.cityAr : office.cityEn;
+                const subText = currentLang === 'ar' ? office.subAr : office.subEn;
+                const callText = currentLang === 'ar' ? 'اتصل بنا' : 'Call';
+                const waText = currentLang === 'ar' ? 'واتساب' : 'WhatsApp';
+                
+                return `
+                    <div class="office-card reveal">
+                        <div class="office-icon"><i class="fas fa-building"></i></div>
+                        <h3>${cityName}</h3>
+                        <div class="office-sub">${subText}</div>
+                        <div class="office-phone" dir="ltr">${office.phoneDisplay}</div>
+                        <div class="office-buttons">
+                            <a href="tel:${office.phone}" class="btn btn-primary">
+                                <i class="fas fa-phone"></i> ${callText}
+                            </a>
+                            <a href="https://wa.me/${office.whatsapp}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                <i class="fab fa-whatsapp"></i> ${waText}
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Email Link
             document.getElementById('contactEmail').href = `mailto:${SITE_CONFIG.email}`;
-            document.getElementById('contactBtnCall').href = `tel:${SITE_CONFIG.phone}`;
-            document.getElementById('contactBtnEmail').href = `mailto:${SITE_CONFIG.email}`;
-            
-            const waLink = `https://wa.me/${SITE_CONFIG.phone.replace(/[^0-9]/g, '')}`;
-            document.getElementById('contactBtnWhatsapp').href = waLink;
+            document.getElementById('contactEmail').innerHTML = `<i class="fas fa-envelope"></i> ${SITE_CONFIG.email}`;
 
             // Footer
             document.getElementById('footerLogo').textContent = SITE_CONFIG.companyName;
@@ -2550,9 +2658,13 @@
             document.getElementById('footerServicesList').innerHTML = t.services.slice(0, 5).map(s => `<li><a href="#services">${s.title}</a></li>`).join('');
             document.getElementById('footerBrandsList').innerHTML = t.brands.map(b => `<li><a href="#brands">${b.nameAr}</a></li>`).join('');
 
+            // =========================================
+            // SOCIAL LINKS - WITH FACEBOOK
+            // =========================================
             const socialContainer = document.getElementById('footerSocial');
             let socialHtml = '';
             if (SITE_CONFIG.social.instagram) socialHtml += `<a href="${SITE_CONFIG.social.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>`;
+            if (SITE_CONFIG.social.facebook) socialHtml += `<a href="${SITE_CONFIG.social.facebook}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>`;
             if (SITE_CONFIG.social.tiktok) socialHtml += `<a href="${SITE_CONFIG.social.tiktok}" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>`;
             if (SITE_CONFIG.social.youtube) socialHtml += `<a href="${SITE_CONFIG.social.youtube}" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>`;
             socialContainer.innerHTML = socialHtml;
