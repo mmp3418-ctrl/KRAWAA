@@ -882,7 +882,7 @@
         }
 
         /* =========================================
-           JOURNEY / TIMELINE
+           JOURNEY / TIMELINE - DYNAMIC RESPONSIVE
            ========================================= */
         .timeline {
             position: relative;
@@ -975,25 +975,31 @@
             left: -7px;
         }
 
+        /* Desktop Alignment */
         @media (min-width: 769px) {
             .timeline-item:nth-child(odd) {
-                padding-right: 3.5rem;
+                padding-right: 4rem;
             }
             .timeline-item:nth-child(even) {
-                padding-left: 3.5rem;
+                padding-left: 4rem;
+            }
+            .timeline-item p {
+                max-width: 380px;
             }
         }
 
+        /* Mobile Alignment - Fully Reset */
         @media (max-width: 768px) {
             .timeline::before {
                 left: 15px;
+                transform: none;
             }
             .timeline-item {
-                width: 100%;
+                width: 100% !important;
+                left: 0 !important;
                 padding-left: 45px !important;
                 padding-right: 0 !important;
                 text-align: right !important;
-                left: 0 !important;
                 margin-bottom: 3rem;
             }
             .timeline-item::after {
@@ -1001,7 +1007,7 @@
                 right: auto !important;
             }
             .timeline-item p {
-                max-width: 100%;
+                max-width: 100% !important;
                 margin-left: 0 !important;
             }
             .timeline-item .year {
@@ -1443,7 +1449,7 @@
         }
 
         /* =========================================
-           CONTACT SECTION - UPDATED WITH TWO OFFICES
+           CONTACT SECTION
            ========================================= */
         .contact-section {
             background-color: var(--bg-secondary);
@@ -1700,7 +1706,6 @@
             display: flex;
             gap: 0.8rem;
             margin-top: 1.5rem;
-            flex-wrap: wrap;
         }
 
         .footer-social a {
@@ -1824,10 +1829,19 @@
 </head>
 <body>
 
+    <!-- =========================================
+         HEADER
+         ========================================= -->
     <header id="mainHeader">
         <div class="container header-inner">
-            <a href="#" class="logo" id="headerLogo"></a>
-            <nav class="nav-links" id="desktopNav"></nav>
+            <a href="#" class="logo" id="headerLogo">
+                <!-- Logo will be injected via JS -->
+            </a>
+
+            <nav class="nav-links" id="desktopNav">
+                <!-- Nav links injected via JS -->
+            </nav>
+
             <div class="header-actions">
                 <button class="icon-btn lang-btn" id="langToggle" aria-label="Toggle Language">
                     <i class="fas fa-globe"></i> <span>EN</span>
@@ -1836,16 +1850,24 @@
                     <i class="fas fa-moon"></i>
                 </button>
                 <button class="hamburger" id="mobileMenuBtn" aria-label="Menu">
-                    <span></span><span></span><span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </div>
     </header>
 
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <ul id="mobileNavList"></ul>
+        <ul id="mobileNavList">
+            <!-- Mobile nav links injected via JS -->
+        </ul>
     </div>
 
+    <!-- =========================================
+         HERO SECTION
+         ========================================= -->
     <section class="hero" id="home">
         <img src="" alt="Luxury Real Estate" class="hero-bg" id="heroBg">
         <div class="hero-overlay"></div>
@@ -1859,6 +1881,9 @@
         </div>
     </section>
 
+    <!-- =========================================
+         ABOUT SECTION
+         ========================================= -->
     <section class="section-padding" id="about">
         <div class="container">
             <div class="about-grid">
@@ -1868,177 +1893,240 @@
                 <div class="about-text reveal">
                     <h2 class="section-title" id="aboutTitle">عن الشركة</h2>
                     <div class="gold-line"></div>
-                    <p id="aboutP1"></p>
-                    <p id="aboutP2"></p>
+                    <p id="aboutP1">كراوع هي شركة ليبية رائدة في مجال العقارات، تقدّم حلولاً متكاملة ومبتكرة في الوساطة العقارية والاستثمار والمقاولات والتسويق العقاري والإنتاج الإعلامي، من خلال منظومة شركات متخصصة تعمل بانسجام وتكامل لتلبية كافة احتياجات عملائنا في السوق المحلي.</p>
+                    <p id="aboutP2">نجمع بين خبرة ميدانية تمتد لأكثر من أحد عشر عاماً وبين معايير عمل حديثة تعتمد على التوثيق والشفافية والأجهزة الإلكترونية، لنمنح عملاءنا قراراً عقارياً واثقاً في كل خطوة: من المعاينة الأولى حتى تسليم المفتاح.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- =========================================
+         VISION / MISSION / VALUES
+         ========================================= -->
     <section class="section-padding" style="background-color: var(--bg-tertiary);" id="vmv">
         <div class="container">
             <div class="vmv-grid">
                 <div class="vmv-card reveal">
                     <i class="fas fa-eye"></i>
                     <h3 id="visionTitle">رؤيتنا</h3>
-                    <p id="visionText"></p>
+                    <p id="visionText">أن نكون الشركة العقارية الأكثر تأثيراً وثقة في ليبيا، من خلال حلول مبتكرة تواكب أفضل المعايير العالمية.</p>
                 </div>
                 <div class="vmv-card reveal">
                     <i class="fas fa-bullseye"></i>
                     <h3 id="missionTitle">رسالتنا</h3>
-                    <p id="missionText"></p>
+                    <p id="missionText">تقديم خدمات عقارية واستثمارية وإعلامية متكاملة تعتمد على الجودة والشفافية، لتحقيق قيمة حقيقية لعملائنا وشركائنا.</p>
                 </div>
                 <div class="vmv-card reveal">
                     <i class="fas fa-gem"></i>
                     <h3 id="valuesTitle">قيمنا</h3>
-                    <div class="values-list" id="valuesList"></div>
+                    <div class="values-list" id="valuesList">
+                        <!-- Values injected via JS -->
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- =========================================
+         HOW WE WORK
+         ========================================= -->
     <section class="section-padding" id="how-we-work">
         <div class="container">
             <h2 class="section-title reveal" id="howTitle">منهجية العمل</h2>
             <div class="gold-line reveal"></div>
             <p class="section-subtitle reveal" id="howSubtitle">HOW WE WORK</p>
+            
             <div class="how-work-grid">
                 <div class="work-step reveal">
                     <div class="step-number">01</div>
-                    <h4 id="step1Title"></h4>
-                    <p id="step1Desc"></p>
+                    <h4 id="step1Title">التقييم والتوثيق</h4>
+                    <p id="step1Desc">تقييم سعري عادل وتوثيق إلكتروني كامل للمستندات.</p>
                 </div>
                 <div class="work-step reveal">
                     <div class="step-number">02</div>
-                    <h4 id="step2Title"></h4>
-                    <p id="step2Desc"></p>
+                    <h4 id="step2Title">الاستماع والمعاينة</h4>
+                    <p id="step2Desc">فهم احتياج العميل ومعاينة العقار ميدانياً.</p>
                 </div>
                 <div class="work-step reveal">
                     <div class="step-number">03</div>
-                    <h4 id="step3Title"></h4>
-                    <p id="step3Desc"></p>
+                    <h4 id="step3Title">التسويق والتفاوض</h4>
+                    <p id="step3Desc">عرض احترافي بالصور والفيديو وإدارة التفاوض.</p>
                 </div>
                 <div class="work-step reveal">
                     <div class="step-number">04</div>
-                    <h4 id="step4Title"></h4>
-                    <p id="step4Desc"></p>
+                    <h4 id="step4Title">الإتمام والمتابعة</h4>
+                    <p id="step4Desc">إتمام التعاقد ومتابعة العميل بعد التسليم.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- =========================================
+         JOURNEY / TIMELINE
+         ========================================= -->
     <section class="section-padding" style="background-color: var(--bg-tertiary);" id="journey">
         <div class="container">
             <h2 class="section-title reveal" id="journeyTitle">رحلتنا</h2>
             <div class="gold-line reveal"></div>
-            <p class="section-subtitle reveal" id="journeySubtitle"></p>
-            <div class="timeline"></div>
+            <p class="section-subtitle reveal" id="journeySubtitle">من أول عملية وساطة إلى منظومة شركات متكاملة</p>
+            
+            <div class="timeline">
+                <!-- Timeline items injected via JS -->
+            </div>
         </div>
     </section>
 
+    <!-- =========================================
+         BRANDS SECTION
+         ========================================= -->
     <section class="section-padding" id="brands">
         <div class="container">
             <h2 class="section-title reveal" id="brandsTitle">منظومة كراوع</h2>
             <div class="gold-line reveal"></div>
-            <p class="section-subtitle reveal" id="brandsSubtitle"></p>
-            <div class="brands-grid" id="brandsGrid"></div>
+            <p class="section-subtitle reveal" id="brandsSubtitle">خمس علامات تجارية متخصصة، تحت مظلة واحدة</p>
+            
+            <div class="brands-grid" id="brandsGrid">
+                <!-- Brands injected via JS -->
+            </div>
         </div>
     </section>
 
+    <!-- =========================================
+         SERVICES SECTION
+         ========================================= -->
     <section class="section-padding" style="background-color: var(--bg-tertiary);" id="services">
         <div class="container">
             <h2 class="section-title reveal" id="servicesTitle">خدماتنا</h2>
             <div class="gold-line reveal"></div>
-            <p class="section-subtitle reveal" id="servicesSubtitle"></p>
-            <div class="services-grid" id="servicesGrid"></div>
+            <p class="section-subtitle reveal" id="servicesSubtitle">حلول متكاملة تحت سقف واحد</p>
+            
+            <div class="services-grid" id="servicesGrid">
+                <!-- Services injected via JS -->
+            </div>
         </div>
     </section>
 
+    <!-- =========================================
+         ACHIEVEMENTS SECTION
+         ========================================= -->
     <section class="section-padding achievements-section" id="achievements">
         <div class="container">
             <h2 class="section-title reveal" style="color: var(--text-on-dark);" id="achievementsTitle">أرقام وإنجازات</h2>
             <div class="gold-line reveal"></div>
-            <div class="achievements-grid" id="achievementsGrid"></div>
+            
+            <div class="achievements-grid" id="achievementsGrid">
+                <!-- Achievements injected via JS -->
+            </div>
         </div>
     </section>
 
+    <!-- =========================================
+         PRESENCE SECTION
+         ========================================= -->
     <section class="section-padding" id="presence">
         <div class="container">
             <h2 class="section-title reveal" id="presenceTitle">حضورنا</h2>
             <div class="gold-line reveal"></div>
-            <div class="presence-grid" id="presenceGrid"></div>
+            
+            <div class="presence-grid" id="presenceGrid">
+                <!-- Presence injected via JS -->
+            </div>
         </div>
     </section>
 
+    <!-- =========================================
+         WORK DETAILS SECTION
+         ========================================= -->
     <section class="section-padding" style="background-color: var(--bg-tertiary);" id="details">
         <div class="container">
             <div class="details-grid">
                 <div class="detail-item reveal">
-                    <h4><i class="fas fa-clock"></i> <span id="detailHoursTitle"></span></h4>
-                    <p id="detailHoursText"></p>
+                    <h4><i class="fas fa-clock"></i> <span id="detailHoursTitle">أوقات العمل</span></h4>
+                    <p id="detailHoursText">الأحد – الخميس: 9:00 – 17:00</p>
                 </div>
                 <div class="detail-item reveal">
-                    <h4><i class="fas fa-map-marked-alt"></i> <span id="detailCoverageTitle"></span></h4>
-                    <p id="detailCoverageText"></p>
+                    <h4><i class="fas fa-map-marked-alt"></i> <span id="detailCoverageTitle">نطاق الخدمة</span></h4>
+                    <p id="detailCoverageText">المنطقة الغربية والشرقية، وخدمة العملاء من الخارج.</p>
                 </div>
                 <div class="detail-item reveal">
-                    <h4><i class="fas fa-handshake"></i> <span id="detailPartnersTitle"></span></h4>
-                    <p id="detailPartnersText"></p>
+                    <h4><i class="fas fa-handshake"></i> <span id="detailPartnersTitle">الشراكات</span></h4>
+                    <p id="detailPartnersText">مطورون، مكاتب هندسية، ومستثمرون، محامون ومقيّمون.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- =========================================
+         CONTACT SECTION - UPDATED
+         ========================================= -->
     <section class="section-padding contact-section" id="contact">
         <div class="container">
-            <h2 class="reveal" id="contactTitle"></h2>
-            <p class="reveal" id="contactDesc"></p>
-            <div class="offices-grid" id="officesGrid"></div>
+            <h2 class="reveal" id="contactTitle">نبني الثقة، نصنع الفرص، ونرسم المستقبل العقاري</h2>
+            <p class="reveal" id="contactDesc">للاستشارة أو الشراكة، تواصل معنا في أي وقت.</p>
+            
+            <!-- Two Offices Grid -->
+            <div class="offices-grid" id="officesGrid">
+                <!-- Office cards will be injected via JS -->
+            </div>
+            
             <div class="contact-info reveal">
-                <a href="mailto:info@krawaare.com" id="contactEmail"></a>
+                <a href="mailto:info@krawaa.ly" id="contactEmail">
+                    <i class="fas fa-envelope"></i> info@krawaa.ly
+                </a>
             </div>
         </div>
     </section>
 
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo-placeholder" id="footerLogo">KRAWAA</div>
-                    <p id="footerDesc"></p>
-                    <div class="footer-social" id="footerSocial"></div>
+                    <p id="footerDesc">شركة ليبية رائدة في مجال العقارات والاستثمار والمقاولات والتسويق العقاري والإنتاج الإعلامي.</p>
+                    <div class="footer-social" id="footerSocial">
+                        <!-- Social links injected via JS -->
+                    </div>
                 </div>
                 <div class="footer-links">
-                    <h4 id="footerNavTitle"></h4>
-                    <ul id="footerNavList"></ul>
+                    <h4 id="footerNavTitle">روابط سريعة</h4>
+                    <ul id="footerNavList">
+                        <!-- Footer nav injected via JS -->
+                    </ul>
                 </div>
                 <div class="footer-links">
-                    <h4 id="footerServicesTitle"></h4>
-                    <ul id="footerServicesList"></ul>
+                    <h4 id="footerServicesTitle">خدماتنا</h4>
+                    <ul id="footerServicesList">
+                        <!-- Footer services injected via JS -->
+                    </ul>
                 </div>
                 <div class="footer-links">
-                    <h4 id="footerBrandsTitle"></h4>
-                    <ul id="footerBrandsList"></ul>
+                    <h4 id="footerBrandsTitle">5 علامات تجارية</h4>
+                    <ul id="footerBrandsList">
+                        <!-- Footer brands injected via JS -->
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p id="footerCopyright"></p>
+                <p id="footerCopyright">© 2026 KRAWAA — جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
 
     <script>
         // =========================================
-        // SITE CONFIGURATION
+        // SITE CONFIGURATION - UPDATED
         // =========================================
         const SITE_CONFIG = {
             companyName: "KRAWAA",
             companyNameAr: "كراوع",
             
-            mainLogo: "ip.png",
+            mainLogo: "lp.png",
             
             brandLogos: {
-                realEstate: "ip.png",
+                realEstate: "lo1.jpeg",
                 construction: "lo2.jpeg",
                 investment: "lo3.png",
                 aqarista: "lo4.png",
@@ -2053,18 +2141,21 @@
             },
             
             // =========================================
-            // روابط التواصل الاجتماعي - مع LinkedIn
+            // روابط التواصل الاجتماعي - تمت إضافة فيسبوك
             // =========================================
             social: {
                 instagram: "https://www.instagram.com/krawaa_re_luxury?stkn=ajBjNnNucHR6aGhi",
                 facebook: "https://www.facebook.com/share/19dQxkUdqn/",
-                linkedin: "https://www.linkedin.com/in/mohamed-m-krawaa-55511a65?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-                tiktok: "https://www.tiktok.com/@krawaare",
+                tiktok: "tiktok.com/@krawaare",
                 youtube: "https://www.youtube.com/@krawaare"
             },
             
-            email: "info@krawaare.com",
+            // =========================================
+            // معلومات الاتصال - تم تحديث الأرقام
+            // =========================================
+            email: "info@krawaa.ly",
             
+            // مكاتب الشركة
             offices: [
                 {
                     id: "tripoli",
@@ -2195,6 +2286,7 @@
                 contactDesc: "للاستشارة أو الشراكة، تواصل معنا في أي وقت.",
                 contactBtnCall: "اتصل بنا",
                 contactBtnWhatsapp: "واتساب",
+                contactBtnEmail: "البريد",
                 
                 footerDesc: "شركة ليبية رائدة في مجال العقارات والاستثمار والمقاولات والتسويق العقاري والإنتاج الإعلامي.",
                 footerNavTitle: "روابط سريعة",
@@ -2301,6 +2393,7 @@
                 contactDesc: "For consultation or partnership, contact us at any time.",
                 contactBtnCall: "Call",
                 contactBtnWhatsapp: "WhatsApp",
+                contactBtnEmail: "Email",
                 
                 footerDesc: "A leading Libyan company in real estate, investment, contracting, real estate marketing, and media production.",
                 footerNavTitle: "Quick Links",
@@ -2310,9 +2403,15 @@
             }
         };
 
+        // =========================================
+        // STATE MANAGEMENT
+        // =========================================
         let currentLang = localStorage.getItem('krawaa_lang') || SITE_CONFIG.defaultLang;
         let currentTheme = localStorage.getItem('krawaa_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
+        // =========================================
+        // INITIALIZATION
+        // =========================================
         document.addEventListener('DOMContentLoaded', () => {
             initTheme();
             initLanguage();
@@ -2324,6 +2423,9 @@
             initHeaderScroll();
         });
 
+        // =========================================
+        // THEME MANAGEMENT
+        // =========================================
         function initTheme() {
             document.documentElement.setAttribute('data-theme', currentTheme);
             updateThemeIcon();
@@ -2338,9 +2440,16 @@
 
         function updateThemeIcon() {
             const icon = document.querySelector('#themeToggle i');
-            icon.className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            if (currentTheme === 'dark') {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
         }
 
+        // =========================================
+        // LANGUAGE MANAGEMENT
+        // =========================================
         function initLanguage() {
             document.documentElement.lang = currentLang;
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
@@ -2359,9 +2468,13 @@
             btn.innerHTML = `<i class="fas fa-globe"></i> <span>${currentLang === 'ar' ? 'EN' : 'AR'}</span>`;
         }
 
+        // =========================================
+        // RENDER CONTENT
+        // =========================================
         function renderContent() {
             const t = TRANSLATIONS[currentLang];
             
+            // Header Logo + Company Name
             const headerLogo = document.getElementById('headerLogo');
             headerLogo.innerHTML = `
                 <img src="${SITE_CONFIG.mainLogo}" alt="${SITE_CONFIG.companyName}" 
@@ -2372,6 +2485,7 @@
                 </div>
             `;
 
+            // Navigation
             const navItems = [
                 { href: "#home", text: t.navHome },
                 { href: "#about", text: t.navAbout },
@@ -2382,20 +2496,26 @@
                 { href: "#contact", text: t.navContact }
             ];
 
-            document.getElementById('desktopNav').innerHTML = navItems.map(item => `<a href="${item.href}">${item.text}</a>`).join('');
-            document.getElementById('mobileNavList').innerHTML = navItems.map(item => `<li><a href="${item.href}" class="mobile-link">${item.text}</a></li>`).join('');
+            const desktopNav = document.getElementById('desktopNav');
+            desktopNav.innerHTML = navItems.map(item => `<a href="${item.href}">${item.text}</a>`).join('');
 
+            const mobileNavList = document.getElementById('mobileNavList');
+            mobileNavList.innerHTML = navItems.map(item => `<li><a href="${item.href}" class="mobile-link">${item.text}</a></li>`).join('');
+
+            // Hero
             document.getElementById('heroBg').src = SITE_CONFIG.images.j1;
             document.getElementById('heroTitle').textContent = t.heroTitle;
             document.getElementById('heroDesc').textContent = t.heroDesc;
             document.getElementById('heroBtn1').textContent = t.heroBtn1;
             document.getElementById('heroBtn2').textContent = t.heroBtn2;
 
+            // About
             document.getElementById('aboutImg').src = SITE_CONFIG.images.j2;
             document.getElementById('aboutTitle').textContent = t.aboutTitle;
             document.getElementById('aboutP1').textContent = t.aboutP1;
             document.getElementById('aboutP2').textContent = t.aboutP2;
 
+            // VMV
             document.getElementById('visionTitle').textContent = t.visionTitle;
             document.getElementById('visionText').textContent = t.visionText;
             document.getElementById('missionTitle').textContent = t.missionTitle;
@@ -2403,6 +2523,7 @@
             document.getElementById('valuesTitle').textContent = t.valuesTitle;
             document.getElementById('valuesList').innerHTML = t.values.map(v => `<span>${v}</span>`).join('');
 
+            // How We Work
             document.getElementById('howTitle').textContent = t.howTitle;
             document.getElementById('howSubtitle').textContent = t.howSubtitle;
             document.getElementById('step1Title').textContent = t.step1Title;
@@ -2414,6 +2535,7 @@
             document.getElementById('step4Title').textContent = t.step4Title;
             document.getElementById('step4Desc').textContent = t.step4Desc;
 
+            // Journey
             document.getElementById('journeyTitle').textContent = t.journeyTitle;
             document.getElementById('journeySubtitle').textContent = t.journeySubtitle;
             const timelineContainer = document.querySelector('.timeline');
@@ -2425,6 +2547,7 @@
                 </div>
             `).join('');
 
+            // Brands
             document.getElementById('brandsTitle').textContent = t.brandsTitle;
             document.getElementById('brandsSubtitle').textContent = t.brandsSubtitle;
             const brandsGrid = document.getElementById('brandsGrid');
@@ -2446,6 +2569,7 @@
                 `;
             }).join('');
 
+            // Services
             document.getElementById('servicesTitle').textContent = t.servicesTitle;
             document.getElementById('servicesSubtitle').textContent = t.servicesSubtitle;
             const servicesGrid = document.getElementById('servicesGrid');
@@ -2459,6 +2583,7 @@
                 </div>
             `).join('');
 
+            // Achievements
             document.getElementById('achievementsTitle').textContent = t.achievementsTitle;
             const achievementsGrid = document.getElementById('achievementsGrid');
             achievementsGrid.innerHTML = t.achievements.map(ach => `
@@ -2468,6 +2593,7 @@
                 </div>
             `).join('');
 
+            // Presence
             document.getElementById('presenceTitle').textContent = t.presenceTitle;
             const presenceGrid = document.getElementById('presenceGrid');
             presenceGrid.innerHTML = t.presence.map(p => `
@@ -2481,6 +2607,7 @@
                 </div>
             `).join('');
 
+            // Work Details
             document.getElementById('detailHoursTitle').textContent = t.detailHoursTitle;
             document.getElementById('detailHoursText').textContent = t.detailHoursText;
             document.getElementById('detailCoverageTitle').textContent = t.detailCoverageTitle;
@@ -2488,9 +2615,13 @@
             document.getElementById('detailPartnersTitle').textContent = t.detailPartnersTitle;
             document.getElementById('detailPartnersText').textContent = t.detailPartnersText;
 
+            // Contact
             document.getElementById('contactTitle').textContent = t.contactTitle;
             document.getElementById('contactDesc').textContent = t.contactDesc;
             
+            // =========================================
+            // OFFICES GRID - RENDER TWO OFFICE CARDS
+            // =========================================
             const officesGrid = document.getElementById('officesGrid');
             officesGrid.innerHTML = SITE_CONFIG.offices.map(office => {
                 const cityName = currentLang === 'ar' ? office.cityAr : office.cityEn;
@@ -2516,9 +2647,11 @@
                 `;
             }).join('');
 
+            // Email Link
             document.getElementById('contactEmail').href = `mailto:${SITE_CONFIG.email}`;
             document.getElementById('contactEmail').innerHTML = `<i class="fas fa-envelope"></i> ${SITE_CONFIG.email}`;
 
+            // Footer
             document.getElementById('footerLogo').textContent = SITE_CONFIG.companyName;
             document.getElementById('footerDesc').textContent = t.footerDesc;
             document.getElementById('footerNavTitle').textContent = t.footerNavTitle;
@@ -2531,13 +2664,12 @@
             document.getElementById('footerBrandsList').innerHTML = t.brands.map(b => `<li><a href="#brands">${b.nameAr}</a></li>`).join('');
 
             // =========================================
-            // SOCIAL LINKS - WITH LINKEDIN
+            // SOCIAL LINKS - WITH FACEBOOK
             // =========================================
             const socialContainer = document.getElementById('footerSocial');
             let socialHtml = '';
             if (SITE_CONFIG.social.instagram) socialHtml += `<a href="${SITE_CONFIG.social.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>`;
             if (SITE_CONFIG.social.facebook) socialHtml += `<a href="${SITE_CONFIG.social.facebook}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>`;
-            if (SITE_CONFIG.social.linkedin) socialHtml += `<a href="${SITE_CONFIG.social.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>`;
             if (SITE_CONFIG.social.tiktok) socialHtml += `<a href="${SITE_CONFIG.social.tiktok}" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>`;
             if (SITE_CONFIG.social.youtube) socialHtml += `<a href="${SITE_CONFIG.social.youtube}" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>`;
             socialContainer.innerHTML = socialHtml;
@@ -2545,6 +2677,9 @@
             initScrollReveal();
         }
 
+        // =========================================
+        // MOBILE MENU
+        // =========================================
         function initMobileMenu() {
             const menuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -2574,8 +2709,12 @@
             });
         }
 
+        // =========================================
+        // SCROLL REVEAL
+        // =========================================
         function initScrollReveal() {
             const reveals = document.querySelectorAll('.reveal');
+            
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2583,12 +2722,22 @@
                         revealObserver.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-            reveals.forEach(reveal => revealObserver.observe(reveal));
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -30px 0px'
+            });
+
+            reveals.forEach(reveal => {
+                revealObserver.observe(reveal);
+            });
         }
 
+        // =========================================
+        // COUNTER ANIMATION
+        // =========================================
         function initCounters() {
             const counters = document.querySelectorAll('.number[data-target]');
+            
             const counterObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2596,9 +2745,12 @@
                         const target = parseInt(el.getAttribute('data-target'));
                         const originalText = el.textContent;
                         const suffix = originalText.replace(/[0-9]/g, '');
+                        
                         let current = 0;
                         const increment = target / 50;
-                        const stepTime = 2000 / 50;
+                        const duration = 2000;
+                        const stepTime = duration / 50;
+                        
                         const timer = setInterval(() => {
                             current += increment;
                             if (current >= target) {
@@ -2608,13 +2760,18 @@
                                 el.textContent = Math.floor(current) + suffix;
                             }
                         }, stepTime);
+                        
                         counterObserver.unobserve(el);
                     }
                 });
             }, { threshold: 0.5 });
+
             counters.forEach(counter => counterObserver.observe(counter));
         }
 
+        // =========================================
+        // SMOOTH SCROLL
+        // =========================================
         function initSmoothScroll() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
@@ -2624,14 +2781,22 @@
                         const headerOffset = 90;
                         const elementPosition = target.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
                     }
                 });
             });
         }
 
+        // =========================================
+        // HEADER SCROLL EFFECT
+        // =========================================
         function initHeaderScroll() {
             const header = document.getElementById('mainHeader');
+            
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     header.classList.add('scrolled');
@@ -2641,6 +2806,9 @@
             });
         }
 
+        // =========================================
+        // EVENT LISTENERS
+        // =========================================
         document.getElementById('themeToggle').addEventListener('click', toggleTheme);
         document.getElementById('langToggle').addEventListener('click', toggleLanguage);
 
