@@ -882,13 +882,13 @@
         }
 
         /* =========================================
-           JOURNEY / TIMELINE - DYNAMIC RESPONSIVE
+           JOURNEY / TIMELINE - FULLY RESPONSIVE
            ========================================= */
         .timeline {
             position: relative;
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 1rem 0;
+            padding: 2rem 0;
         }
 
         .timeline::before {
@@ -897,7 +897,7 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 1px;
+            width: 2px;
             height: 100%;
             background: linear-gradient(to bottom, transparent, var(--border-color) 5%, var(--border-color) 95%, transparent);
         }
@@ -906,115 +906,155 @@
             position: relative;
             margin-bottom: 3.5rem;
             width: 50%;
-            padding: 0 2rem;
+            padding: 0 3rem;
+            box-sizing: border-box;
         }
 
+        /* Right side (odd items in RTL) */
         .timeline-item:nth-child(odd) {
-            left: 0;
+            right: 0;
             text-align: right;
-            padding-right: 3rem;
+            padding-right: 4rem;
+            padding-left: 0;
         }
 
+        /* Left side (even items in RTL) */
         .timeline-item:nth-child(even) {
             left: 50%;
             text-align: left;
-            padding-left: 3rem;
+            padding-left: 4rem;
+            padding-right: 0;
         }
 
         .timeline-item .year {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--accent-gold);
-            margin-bottom: 0.4rem;
-            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
         }
 
         .timeline-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
             color: var(--text-primary);
             line-height: 1.4;
         }
 
         .timeline-item p {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
-            line-height: 1.7;
-            max-width: 320px;
+            line-height: 1.8;
+            max-width: 100%;
         }
 
-        .timeline-item:nth-child(odd) p {
-            margin-left: auto;
-        }
-
+        /* Dots */
         .timeline-item::after {
             content: '';
             position: absolute;
-            top: 10px;
-            width: 14px;
-            height: 14px;
+            top: 12px;
+            width: 18px;
+            height: 18px;
             background-color: var(--bg-primary);
             border: 3px solid var(--accent-gold);
             border-radius: 50%;
-            z-index: 1;
+            z-index: 2;
             transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -9px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -9px;
         }
 
         .timeline-item:hover::after {
             transform: scale(1.3);
             background-color: var(--accent-gold);
-            box-shadow: 0 0 20px rgba(184, 148, 95, 0.5);
+            box-shadow: 0 0 25px rgba(184, 148, 95, 0.6);
         }
 
-        .timeline-item:nth-child(odd)::after {
-            right: -7px;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -7px;
-        }
-
-        /* Desktop Alignment */
-        @media (min-width: 769px) {
-            .timeline-item:nth-child(odd) {
-                padding-right: 4rem;
-            }
-            .timeline-item:nth-child(even) {
-                padding-left: 4rem;
-            }
-            .timeline-item p {
-                max-width: 380px;
-            }
-        }
-
-        /* Mobile Alignment - Fully Reset */
+        /* Mobile Timeline - Fully Reset */
         @media (max-width: 768px) {
             .timeline::before {
-                left: 15px;
+                left: 20px;
                 transform: none;
             }
+            
             .timeline-item {
                 width: 100% !important;
                 left: 0 !important;
-                padding-left: 45px !important;
-                padding-right: 0 !important;
-                text-align: right !important;
-                margin-bottom: 3rem;
-            }
-            .timeline-item::after {
-                left: 8px !important;
                 right: auto !important;
+                text-align: right !important;
+                padding-left: 50px !important;
+                padding-right: 0 !important;
+                margin-bottom: 2.5rem;
             }
-            .timeline-item p {
-                max-width: 100% !important;
-                margin-left: 0 !important;
+
+            .timeline-item::after {
+                left: 11px !important;
+                right: auto !important;
+                width: 16px;
+                height: 16px;
             }
+
             .timeline-item .year {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
+
             .timeline-item h4 {
                 font-size: 1rem;
+            }
+
+            .timeline-item p {
+                font-size: 0.85rem;
+                max-width: 100%;
+            }
+        }
+
+        /* LTR Support for Timeline */
+        body[dir="ltr"] .timeline-item:nth-child(odd) {
+            right: auto;
+            left: 0;
+            text-align: left;
+            padding-left: 4rem;
+            padding-right: 0;
+        }
+
+        body[dir="ltr"] .timeline-item:nth-child(even) {
+            left: auto;
+            right: 0;
+            text-align: right;
+            padding-right: 4rem;
+            padding-left: 0;
+        }
+
+        body[dir="ltr"] .timeline-item:nth-child(odd)::after {
+            left: -9px;
+            right: auto;
+        }
+
+        body[dir="ltr"] .timeline-item:nth-child(even)::after {
+            right: -9px;
+            left: auto;
+        }
+
+        @media (max-width: 768px) {
+            body[dir="ltr"] .timeline::before {
+                left: 20px;
+                right: auto;
+            }
+            body[dir="ltr"] .timeline-item {
+                text-align: left !important;
+                padding-left: 50px !important;
+                padding-right: 0 !important;
+            }
+            body[dir="ltr"] .timeline-item::after {
+                left: 11px !important;
+                right: auto !important;
             }
         }
 
@@ -2057,14 +2097,13 @@
     </section>
 
     <!-- =========================================
-         CONTACT SECTION - UPDATED
+         CONTACT SECTION
          ========================================= -->
     <section class="section-padding contact-section" id="contact">
         <div class="container">
             <h2 class="reveal" id="contactTitle">نبني الثقة، نصنع الفرص، ونرسم المستقبل العقاري</h2>
             <p class="reveal" id="contactDesc">للاستشارة أو الشراكة، تواصل معنا في أي وقت.</p>
             
-            <!-- Two Offices Grid -->
             <div class="offices-grid" id="officesGrid">
                 <!-- Office cards will be injected via JS -->
             </div>
@@ -2117,7 +2156,7 @@
 
     <script>
         // =========================================
-        // SITE CONFIGURATION - UPDATED
+        // SITE CONFIGURATION
         // =========================================
         const SITE_CONFIG = {
             companyName: "KRAWAA",
@@ -2140,22 +2179,16 @@
                 presenceBenghazi: "j2.webp"
             },
             
-            // =========================================
-            // روابط التواصل الاجتماعي - تمت إضافة فيسبوك
-            // =========================================
             social: {
                 instagram: "https://www.instagram.com/krawaa_re_luxury?stkn=ajBjNnNucHR6aGhi",
                 facebook: "https://www.facebook.com/share/19dQxkUdqn/",
+                linkedin: "https://www.linkedin.com/in/mohamed-m-krawaa-55511a65?utm_source=share_via&utm_content=profile&utm_medium=member_android",
                 tiktok: "tiktok.com/@krawaare",
                 youtube: "https://www.youtube.com/@krawaare"
             },
             
-            // =========================================
-            // معلومات الاتصال - تم تحديث الأرقام
-            // =========================================
             email: "info@krawaa.ly",
             
-            // مكاتب الشركة
             offices: [
                 {
                     id: "tripoli",
@@ -2202,7 +2235,7 @@
                 heroBtn2: "تواصل معنا",
                 
                 aboutTitle: "عن الشركة",
-                aboutP1: "كروع هي شركة ليبية رائدة في مجال العقارات، تقدّم حلولاً متكاملة ومبتكرة في الوساطة العقارية والاستثمار والمقاولات والتسويق العقاري والإنتاج الإعلامي، من خلال منظومة شركات متخصصة تعمل بانسجام وتكامل لتلبية كافة احتياجات عملائنا في السوق المحلي.",
+                aboutP1: "كراوع هي شركة ليبية رائدة في مجال العقارات، تقدّم حلولاً متكاملة ومبتكرة في الوساطة العقارية والاستثمار والمقاولات والتسويق العقاري والإنتاج الإعلامي، من خلال منظومة شركات متخصصة تعمل بانسجام وتكامل لتلبية كافة احتياجات عملائنا في السوق المحلي.",
                 aboutP2: "نجمع بين خبرة ميدانية تمتد لأكثر من أحد عشر عاماً وبين معايير عمل حديثة تعتمد على التوثيق والشفافية والأجهزة الإلكترونية، لنمنح عملاءنا قراراً عقارياً واثقاً في كل خطوة: من المعاينة الأولى حتى تسليم المفتاح.",
                 
                 visionTitle: "رؤيتنا",
@@ -2403,15 +2436,9 @@
             }
         };
 
-        // =========================================
-        // STATE MANAGEMENT
-        // =========================================
         let currentLang = localStorage.getItem('krawaa_lang') || SITE_CONFIG.defaultLang;
         let currentTheme = localStorage.getItem('krawaa_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
-        // =========================================
-        // INITIALIZATION
-        // =========================================
         document.addEventListener('DOMContentLoaded', () => {
             initTheme();
             initLanguage();
@@ -2423,9 +2450,6 @@
             initHeaderScroll();
         });
 
-        // =========================================
-        // THEME MANAGEMENT
-        // =========================================
         function initTheme() {
             document.documentElement.setAttribute('data-theme', currentTheme);
             updateThemeIcon();
@@ -2447,9 +2471,6 @@
             }
         }
 
-        // =========================================
-        // LANGUAGE MANAGEMENT
-        // =========================================
         function initLanguage() {
             document.documentElement.lang = currentLang;
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
@@ -2468,13 +2489,9 @@
             btn.innerHTML = `<i class="fas fa-globe"></i> <span>${currentLang === 'ar' ? 'EN' : 'AR'}</span>`;
         }
 
-        // =========================================
-        // RENDER CONTENT
-        // =========================================
         function renderContent() {
             const t = TRANSLATIONS[currentLang];
             
-            // Header Logo + Company Name
             const headerLogo = document.getElementById('headerLogo');
             headerLogo.innerHTML = `
                 <img src="${SITE_CONFIG.mainLogo}" alt="${SITE_CONFIG.companyName}" 
@@ -2485,7 +2502,6 @@
                 </div>
             `;
 
-            // Navigation
             const navItems = [
                 { href: "#home", text: t.navHome },
                 { href: "#about", text: t.navAbout },
@@ -2502,20 +2518,17 @@
             const mobileNavList = document.getElementById('mobileNavList');
             mobileNavList.innerHTML = navItems.map(item => `<li><a href="${item.href}" class="mobile-link">${item.text}</a></li>`).join('');
 
-            // Hero
             document.getElementById('heroBg').src = SITE_CONFIG.images.j1;
             document.getElementById('heroTitle').textContent = t.heroTitle;
             document.getElementById('heroDesc').textContent = t.heroDesc;
             document.getElementById('heroBtn1').textContent = t.heroBtn1;
             document.getElementById('heroBtn2').textContent = t.heroBtn2;
 
-            // About
             document.getElementById('aboutImg').src = SITE_CONFIG.images.j2;
             document.getElementById('aboutTitle').textContent = t.aboutTitle;
             document.getElementById('aboutP1').textContent = t.aboutP1;
             document.getElementById('aboutP2').textContent = t.aboutP2;
 
-            // VMV
             document.getElementById('visionTitle').textContent = t.visionTitle;
             document.getElementById('visionText').textContent = t.visionText;
             document.getElementById('missionTitle').textContent = t.missionTitle;
@@ -2523,7 +2536,6 @@
             document.getElementById('valuesTitle').textContent = t.valuesTitle;
             document.getElementById('valuesList').innerHTML = t.values.map(v => `<span>${v}</span>`).join('');
 
-            // How We Work
             document.getElementById('howTitle').textContent = t.howTitle;
             document.getElementById('howSubtitle').textContent = t.howSubtitle;
             document.getElementById('step1Title').textContent = t.step1Title;
@@ -2535,7 +2547,6 @@
             document.getElementById('step4Title').textContent = t.step4Title;
             document.getElementById('step4Desc').textContent = t.step4Desc;
 
-            // Journey
             document.getElementById('journeyTitle').textContent = t.journeyTitle;
             document.getElementById('journeySubtitle').textContent = t.journeySubtitle;
             const timelineContainer = document.querySelector('.timeline');
@@ -2547,7 +2558,6 @@
                 </div>
             `).join('');
 
-            // Brands
             document.getElementById('brandsTitle').textContent = t.brandsTitle;
             document.getElementById('brandsSubtitle').textContent = t.brandsSubtitle;
             const brandsGrid = document.getElementById('brandsGrid');
@@ -2569,7 +2579,6 @@
                 `;
             }).join('');
 
-            // Services
             document.getElementById('servicesTitle').textContent = t.servicesTitle;
             document.getElementById('servicesSubtitle').textContent = t.servicesSubtitle;
             const servicesGrid = document.getElementById('servicesGrid');
@@ -2583,7 +2592,6 @@
                 </div>
             `).join('');
 
-            // Achievements
             document.getElementById('achievementsTitle').textContent = t.achievementsTitle;
             const achievementsGrid = document.getElementById('achievementsGrid');
             achievementsGrid.innerHTML = t.achievements.map(ach => `
@@ -2593,7 +2601,6 @@
                 </div>
             `).join('');
 
-            // Presence
             document.getElementById('presenceTitle').textContent = t.presenceTitle;
             const presenceGrid = document.getElementById('presenceGrid');
             presenceGrid.innerHTML = t.presence.map(p => `
@@ -2607,7 +2614,6 @@
                 </div>
             `).join('');
 
-            // Work Details
             document.getElementById('detailHoursTitle').textContent = t.detailHoursTitle;
             document.getElementById('detailHoursText').textContent = t.detailHoursText;
             document.getElementById('detailCoverageTitle').textContent = t.detailCoverageTitle;
@@ -2615,13 +2621,9 @@
             document.getElementById('detailPartnersTitle').textContent = t.detailPartnersTitle;
             document.getElementById('detailPartnersText').textContent = t.detailPartnersText;
 
-            // Contact
             document.getElementById('contactTitle').textContent = t.contactTitle;
             document.getElementById('contactDesc').textContent = t.contactDesc;
             
-            // =========================================
-            // OFFICES GRID - RENDER TWO OFFICE CARDS
-            // =========================================
             const officesGrid = document.getElementById('officesGrid');
             officesGrid.innerHTML = SITE_CONFIG.offices.map(office => {
                 const cityName = currentLang === 'ar' ? office.cityAr : office.cityEn;
@@ -2647,11 +2649,9 @@
                 `;
             }).join('');
 
-            // Email Link
             document.getElementById('contactEmail').href = `mailto:${SITE_CONFIG.email}`;
             document.getElementById('contactEmail').innerHTML = `<i class="fas fa-envelope"></i> ${SITE_CONFIG.email}`;
 
-            // Footer
             document.getElementById('footerLogo').textContent = SITE_CONFIG.companyName;
             document.getElementById('footerDesc').textContent = t.footerDesc;
             document.getElementById('footerNavTitle').textContent = t.footerNavTitle;
@@ -2663,13 +2663,11 @@
             document.getElementById('footerServicesList').innerHTML = t.services.slice(0, 5).map(s => `<li><a href="#services">${s.title}</a></li>`).join('');
             document.getElementById('footerBrandsList').innerHTML = t.brands.map(b => `<li><a href="#brands">${b.nameAr}</a></li>`).join('');
 
-            // =========================================
-            // SOCIAL LINKS - WITH FACEBOOK
-            // =========================================
             const socialContainer = document.getElementById('footerSocial');
             let socialHtml = '';
             if (SITE_CONFIG.social.instagram) socialHtml += `<a href="${SITE_CONFIG.social.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>`;
             if (SITE_CONFIG.social.facebook) socialHtml += `<a href="${SITE_CONFIG.social.facebook}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>`;
+            if (SITE_CONFIG.social.linkedin) socialHtml += `<a href="${SITE_CONFIG.social.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>`;
             if (SITE_CONFIG.social.tiktok) socialHtml += `<a href="${SITE_CONFIG.social.tiktok}" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>`;
             if (SITE_CONFIG.social.youtube) socialHtml += `<a href="${SITE_CONFIG.social.youtube}" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>`;
             socialContainer.innerHTML = socialHtml;
@@ -2677,9 +2675,6 @@
             initScrollReveal();
         }
 
-        // =========================================
-        // MOBILE MENU
-        // =========================================
         function initMobileMenu() {
             const menuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -2709,12 +2704,8 @@
             });
         }
 
-        // =========================================
-        // SCROLL REVEAL
-        // =========================================
         function initScrollReveal() {
             const reveals = document.querySelectorAll('.reveal');
-            
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2722,22 +2713,12 @@
                         revealObserver.unobserve(entry.target);
                     }
                 });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -30px 0px'
-            });
-
-            reveals.forEach(reveal => {
-                revealObserver.observe(reveal);
-            });
+            }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+            reveals.forEach(reveal => revealObserver.observe(reveal));
         }
 
-        // =========================================
-        // COUNTER ANIMATION
-        // =========================================
         function initCounters() {
             const counters = document.querySelectorAll('.number[data-target]');
-            
             const counterObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2745,12 +2726,9 @@
                         const target = parseInt(el.getAttribute('data-target'));
                         const originalText = el.textContent;
                         const suffix = originalText.replace(/[0-9]/g, '');
-                        
                         let current = 0;
                         const increment = target / 50;
-                        const duration = 2000;
-                        const stepTime = duration / 50;
-                        
+                        const stepTime = 2000 / 50;
                         const timer = setInterval(() => {
                             current += increment;
                             if (current >= target) {
@@ -2760,18 +2738,13 @@
                                 el.textContent = Math.floor(current) + suffix;
                             }
                         }, stepTime);
-                        
                         counterObserver.unobserve(el);
                     }
                 });
             }, { threshold: 0.5 });
-
             counters.forEach(counter => counterObserver.observe(counter));
         }
 
-        // =========================================
-        // SMOOTH SCROLL
-        // =========================================
         function initSmoothScroll() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
@@ -2781,22 +2754,14 @@
                         const headerOffset = 90;
                         const elementPosition = target.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                     }
                 });
             });
         }
 
-        // =========================================
-        // HEADER SCROLL EFFECT
-        // =========================================
         function initHeaderScroll() {
             const header = document.getElementById('mainHeader');
-            
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     header.classList.add('scrolled');
@@ -2806,9 +2771,6 @@
             });
         }
 
-        // =========================================
-        // EVENT LISTENERS
-        // =========================================
         document.getElementById('themeToggle').addEventListener('click', toggleTheme);
         document.getElementById('langToggle').addEventListener('click', toggleLanguage);
 
